@@ -1,0 +1,11 @@
+flixbus:
+  url: 'https://www.flixbus.com'
+  search:
+    url: https://shop.global.flixbus.com/search?departureCity={source_id}&arrivalCity={destination_id}&route={source}-{destination}&rideDate={departure_date:%d.%m.%Y}&adult=1
+  cities:
+    base_url: 'https://d11mb9zho2u7hy.cloudfront.net/api/v1/cities'
+
+redis:
+  host: 'redis'
+  port: 6379
+  time_invalidate: 60
