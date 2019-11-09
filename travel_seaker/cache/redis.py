@@ -1,6 +1,9 @@
-from travel_seaker.configuration import Configuration
-from redis import StrictRedis
 import pickle
+
+from redis import StrictRedis
+
+from travel_seaker.configuration import Configuration
+
 
 def _get_client():
     return StrictRedis(

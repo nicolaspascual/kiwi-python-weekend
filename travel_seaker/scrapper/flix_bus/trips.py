@@ -1,8 +1,11 @@
+import re
+
 from requests_html import HTMLSession
+
+from travel_seaker.cache import cache_redis
 from travel_seaker.configuration import Configuration
 from travel_seaker.models import Trip
-import re
-from travel_seaker.cache import cache_redis
+
 
 class FlixBusTripScrapper(object):
 

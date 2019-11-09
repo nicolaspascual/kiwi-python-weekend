@@ -1,7 +1,10 @@
-from travel_seaker.configuration import Configuration
 from requests_html import HTMLSession
+
+from travel_seaker.configuration import Configuration
+
 from .cities import FlixBusCitiesScrapper
 from .trips import FlixBusTripScrapper
+
 
 class FlixBusScrapper(object):
 

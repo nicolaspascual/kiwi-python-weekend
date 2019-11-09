@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+
 class Trip(object):
     def __init__(self, departure_datetime, arrival_datetime, source, destination,
                  price, type, source_id, destination_id, free_seats, carrier):
