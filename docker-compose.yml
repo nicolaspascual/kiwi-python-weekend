@@ -1,15 +1,38 @@
 version: '3'
 
 services:
-  app:
-    build: .
+  frontend:
+    build: ./frontend
+    depends_on: 
+      - backend
+    volumes:
+      - ./frontend/:/home/app
+    ports:
+      - "8080:8080"
+    command: run start
+  backend:
+    build: ./backend
     depends_on: 
       - redis
+      - db
     volumes: 
-      - .:/home/app
+      - ./backend/:/home/app
+    command: run_server.py
+    ports:
+      - "5000:5000"
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=nicolas
+      - POSTGRES_PASSWORD=nicolas
+      - POSTGRES_DB=travel_seaker
+    ports:
+      - "54320:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
   redis:
     image: "redis:alpine"
     ports: 
-      - 6379:6379
+      - "6379:6379"
     volumes:
-      - ../data/redis:/data
+      - ./redis-data:/data
